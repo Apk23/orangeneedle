@@ -1,6 +1,6 @@
 # orangeneedles
 
-A new Flutter application.
+This is a shopping app made in flutter
 
 ## Getting Started
 
