@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         '/signup': (BuildContext context) => SignUpPage(),
         '/signin': (BuildContext context) => SignInPage(),
-//        '/dashboard': (BuildContext context) => Dashboard(),
+        '/dashboard': (BuildContext context) => Dashboard(),
 //        '/productPage': (BuildContext context) => ProductPage(),
       },
     );

@@ -69,12 +69,12 @@ class _SignUpPageState extends State<SignUpPage> {
                   right: -15,
                   child: FlatButton(
                     onPressed: () {
-//                      Navigator.pushReplacement(
-//                          context,
-//                          PageTransition(
-//                            type: PageTransitionType.rightToLeft,
-//                              child: Dashboard(),
-//                          ));
+                      Navigator.pushReplacement(
+                          context,
+                          PageTransition(
+                            type: PageTransitionType.rightToLeft,
+                            child: Dashboard(),
+                          ));
                     },
                     color: primaryColor,
                     padding: EdgeInsets.all(13),
