@@ -103,285 +103,285 @@ class _DashboardState extends State<Dashboard> {
       _selectedIndex = index;
     });
   }
-}
 
-Widget storeTab(BuildContext context) {
-  // will pick it up from here
-  // am to start another template
-  List<Product> foods = [
-    Product(
-        name: "Kurta",
-        image: "images/3.JPG",
-        price: "Rs 1000.00",
-        userLiked: true,
-        discount: 10),
-    Product(
-        name: "Saree",
-        image: "images/5.jpg",
-        price: "Rs 2000.00",
+  Widget storeTab(BuildContext context) {
+    // will pick it up from here
+    // am to start another template
+    List<Product> category1 = [
+      Product(
+          name: "Kurta",
+          image: "images/3.JPG",
+          price: 1000,
+          userLiked: true,
+          discount: 10),
+      Product(
+          name: "Saree",
+          image: "images/5.jpg",
+          price: 2000.00,
+          userLiked: false,
+          discount: 7.8),
+      Product(
+        name: "Kurta Pajama",
+        image: 'images/2.jpg',
+        price: 1500,
         userLiked: false,
-        discount: 7.8),
-    Product(
-      name: "Kurta Pajama",
-      image: 'images/2.jpg',
-      price: 'Rs 1500',
-      userLiked: false,
-    ),
-    Product(
-        name: "Royal Sherwani",
-        image: "images/1.jpg",
-        price: '2000.00',
-        userLiked: true,
-        discount: 14)
-  ];
-
-  List<Product> drinks = [
-    Product(
-        name: "Lehenga",
-        image: "images/6.jpg",
-        price: "Rs 3000",
-        userLiked: false,
-        discount: 2),
-    Product(
-        name: "Salwar",
-        image: "images/7.jpg",
-        price: "Rs 2800",
-        userLiked: true,
-        discount: 5.2),
-    Product(
-        name: " Ghagra",
-        image: "images/8.jpg",
-        price: "Rs 3000",
-        userLiked: false),
-    Product(
-        name: "Sherwani",
-        image: "images/9.jpg",
-        price: "Rs 999",
-        userLiked: true,
-        discount: 3.4)
-  ];
-
-  return ListView(children: <Widget>[
-    headerTopCategories(),
-    deals('Hot Deals', onViewMore: () {}, items: <Widget>[
-      dressSample(foods[0], onTapped: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return ProductPage(
-                productData: foods[0],
-              );
-            },
-          ),
-        );
-      }, onLike: () {}),
-      dressSample(foods[1], onTapped: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return new ProductPage(
-                productData: foods[1],
-              );
-            },
-          ),
-        );
-      }, imgWidth: 250, onLike: () {}),
-      dressSample(foods[2], onTapped: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return new ProductPage(
-                productData: foods[2],
-              );
-            },
-          ),
-        );
-      }, imgWidth: 200, onLike: () {}),
-      dressSample(foods[3], onTapped: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return new ProductPage(
-                productData: foods[3],
-              );
-            },
-          ),
-        );
-      }, onLike: () {}),
-    ]),
-    deals('Wedding Designs', onViewMore: () {}, items: <Widget>[
-      dressSample(drinks[0], onTapped: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return new ProductPage(
-                productData: drinks[0],
-              );
-            },
-          ),
-        );
-      }, onLike: () {}, imgWidth: 60),
-      dressSample(drinks[1], onTapped: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return new ProductPage(
-                productData: drinks[1],
-              );
-            },
-          ),
-        );
-      }, onLike: () {}, imgWidth: 75),
-      dressSample(drinks[2], onTapped: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return new ProductPage(
-                productData: drinks[2],
-              );
-            },
-          ),
-        );
-      }, imgWidth: 110, onLike: () {}),
-      dressSample(drinks[3], onTapped: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return ProductPage(
-                productData: drinks[3],
-              );
-            },
-          ),
-        );
-      }, onLike: () {}),
-    ])
-  ]);
-}
-
-Widget sectionHeader(String headerTitle, {onViewMore}) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: <Widget>[
-      Container(
-        margin: EdgeInsets.only(left: 15, top: 10),
-        child: Text(headerTitle, style: h4),
       ),
-      Container(
-        margin: EdgeInsets.only(left: 15, top: 2),
-        child: FlatButton(
-          onPressed: onViewMore,
-          child: Text('View all ›', style: contrastText),
-        ),
-      )
-    ],
-  );
-}
+      Product(
+          name: "Royal Sherwani",
+          image: "images/1.jpg",
+          price: 2000.00,
+          userLiked: false,
+          discount: 14)
+    ];
 
-// wrap the horizontal listview inside a sizedBox..
-Widget headerTopCategories() {
-  return Column(
-    mainAxisAlignment: MainAxisAlignment.center,
-    crossAxisAlignment: CrossAxisAlignment.center,
-    children: <Widget>[
-      sectionHeader('All Categories', onViewMore: () {}),
-      SizedBox(
-        height: 130,
-        child: ListView(
-          scrollDirection: Axis.horizontal,
-          shrinkWrap: true,
-          children: <Widget>[
-            headerCategoryItem(
-                'Men',
-                Image.asset(
-                  'images/1.jpg',
-                  height: 70,
-                ),
-                onPressed: () {}),
-            headerCategoryItem(
-                'Women',
-                Image.asset(
-                  'images/8.jpg',
-                  height: 75,
-                ),
-                onPressed: () {}),
-            headerCategoryItem(
-                'Kids',
-                Image.asset(
-                  'images/9.jpg',
-                  height: 75,
-                ),
-                onPressed: () {}),
-            headerCategoryItem(
-                'Wedding Specials',
-                Image.asset(
-                  'images/5.jpg',
-                  height: 55,
-                ),
-                onPressed: () {}),
-          ],
-        ),
-      )
-    ],
-  );
-}
+    List<Product> category2 = [
+      Product(
+          name: "Lehenga",
+          image: "images/6.jpg",
+          price: 3000,
+          userLiked: true,
+          discount: 2),
+      Product(
+          name: "Salwar",
+          image: "images/7.jpg",
+          price: 2800,
+          userLiked: false,
+          discount: 5.2),
+      Product(
+          name: " Ghagra",
+          image: "images/8.jpg",
+          price: 3000,
+          userLiked: false),
+      Product(
+          name: "Sherwani",
+          image: "images/9.jpg",
+          price: 999,
+          userLiked: false,
+          discount: 3.4)
+    ];
 
-Widget headerCategoryItem(String name, Widget image, {onPressed}) {
-  return Container(
-    margin: EdgeInsets.only(left: 15),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.center,
+    return ListView(children: <Widget>[
+      headerTopCategories(),
+      deals('Hot Deals', onViewMore: () {}, items: <Widget>[
+        dressSample(category1[0], onTapped: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return ProductPage(
+                  productData: category1[0],
+                );
+              },
+            ),
+          );
+        }, onLike: () {}),
+        dressSample(category1[1], onTapped: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return new ProductPage(
+                  productData: category1[1],
+                );
+              },
+            ),
+          );
+        }, imgWidth: 250, onLike: () {}),
+        dressSample(category1[2], onTapped: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return new ProductPage(
+                  productData: category1[2],
+                );
+              },
+            ),
+          );
+        }, imgWidth: 200, onLike: () {}),
+        dressSample(category1[3], onTapped: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return new ProductPage(
+                  productData: category1[3],
+                );
+              },
+            ),
+          );
+        }, onLike: () {}),
+      ]),
+      deals('Wedding Designs', onViewMore: () {}, items: <Widget>[
+        dressSample(category2[0], onTapped: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return new ProductPage(
+                  productData: category2[0],
+                );
+              },
+            ),
+          );
+        }, onLike: () {}, imgWidth: 60),
+        dressSample(category2[1], onTapped: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return ProductPage(
+                  productData: category2[1],
+                );
+              },
+            ),
+          );
+        }, onLike: () {}, imgWidth: 75),
+        dressSample(category2[2], onTapped: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return new ProductPage(
+                  productData: category2[2],
+                );
+              },
+            ),
+          );
+        }, imgWidth: 110, onLike: () {}),
+        dressSample(category2[3], onTapped: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return ProductPage(
+                  productData: category2[3],
+                );
+              },
+            ),
+          );
+        }, onLike: () {}),
+      ])
+    ]);
+  }
+
+  Widget sectionHeader(String headerTitle, {onViewMore}) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Container(
-            margin: EdgeInsets.only(bottom: 10),
-            width: 90,
-            height: 90,
-            child: FloatingActionButton(
-              shape: CircleBorder(),
-              heroTag: name,
-              onPressed: onPressed,
-              backgroundColor: white,
-              child: image,
-            )),
-        Text(name + ' ›', style: categoryText)
-      ],
-    ),
-  );
-}
-
-Widget deals(String dealTitle, {onViewMore, List<Widget> items}) {
-  return Container(
-    margin: EdgeInsets.only(top: 5),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        sectionHeader(dealTitle, onViewMore: onViewMore),
-        SizedBox(
-          height: 250,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: (items != null)
-                ? items
-                : <Widget>[
-                    Container(
-                      margin: EdgeInsets.only(left: 15),
-                      child: Text('No items available at this moment.',
-                          style: taglineText),
-                    )
-                  ],
+          margin: EdgeInsets.only(left: 15, top: 10),
+          child: Text(headerTitle, style: h4),
+        ),
+        Container(
+          margin: EdgeInsets.only(left: 15, top: 2),
+          child: FlatButton(
+            onPressed: onViewMore,
+            child: Text('View all ›', style: contrastText),
           ),
         )
       ],
-    ),
-  );
+    );
+  }
+
+// wrap the horizontal listview inside a sizedBox..
+  Widget headerTopCategories() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        sectionHeader('All Categories', onViewMore: () {}),
+        SizedBox(
+          height: 130,
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            shrinkWrap: true,
+            children: <Widget>[
+              headerCategoryItem(
+                  'Men',
+                  Image.asset(
+                    'images/1.jpg',
+                    height: 70,
+                  ),
+                  onPressed: () {}),
+              headerCategoryItem(
+                  'Women',
+                  Image.asset(
+                    'images/8.jpg',
+                    height: 75,
+                  ),
+                  onPressed: () {}),
+              headerCategoryItem(
+                  'Kids',
+                  Image.asset(
+                    'images/9.jpg',
+                    height: 75,
+                  ),
+                  onPressed: () {}),
+              headerCategoryItem(
+                  'Wedding Specials',
+                  Image.asset(
+                    'images/5.jpg',
+                    height: 55,
+                  ),
+                  onPressed: () {}),
+            ],
+          ),
+        )
+      ],
+    );
+  }
+
+  Widget headerCategoryItem(String name, Widget image, {onPressed}) {
+    return Container(
+      margin: EdgeInsets.only(left: 15),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Container(
+              margin: EdgeInsets.only(bottom: 10),
+              width: 90,
+              height: 90,
+              child: FloatingActionButton(
+                shape: CircleBorder(),
+                heroTag: name,
+                onPressed: onPressed,
+                backgroundColor: white,
+                child: image,
+              )),
+          Text(name + ' ›', style: categoryText)
+        ],
+      ),
+    );
+  }
+
+  Widget deals(String dealTitle, {onViewMore, List<Widget> items}) {
+    return Container(
+      margin: EdgeInsets.only(top: 5),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          sectionHeader(dealTitle, onViewMore: onViewMore),
+          SizedBox(
+            height: 250,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: (items != null)
+                  ? items
+                  : <Widget>[
+                      Container(
+                        margin: EdgeInsets.only(left: 15),
+                        child: Text('No items available at this moment.',
+                            style: taglineText),
+                      )
+                    ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
 }

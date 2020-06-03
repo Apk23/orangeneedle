@@ -49,7 +49,7 @@ Widget dressSample(Product category1,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(category1.name, style: foodNameText),
-                    Text(category1.price, style: priceText),
+                    Text('Rs ' + category1.price.toString(), style: priceText),
                   ],
                 )
               : Text(' '),

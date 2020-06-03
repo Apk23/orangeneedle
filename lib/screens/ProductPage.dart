@@ -19,6 +19,14 @@ class ProductPage extends StatefulWidget {
 class _ProductPageState extends State<ProductPage> {
   double _rating = 4;
   int _quantity = 1;
+  bool userLiked = false;
+
+  void onLiked() {
+    setState(() {
+      userLiked = !userLiked;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +58,8 @@ class _ProductPageState extends State<ProductPage> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
                             Text(widget.productData.name, style: h5),
-                            Text(widget.productData.price, style: h3),
+                            Text('Rs ' + widget.productData.price.toString(),
+                                style: h3),
                             Container(
                               margin: EdgeInsets.only(top: 5, bottom: 20),
                               child: SmoothStarRating(
@@ -145,8 +154,9 @@ class _ProductPageState extends State<ProductPage> {
                         child: dressSample(widget.productData,
                             isProductPage: true,
                             onTapped: () {},
-                            imgWidth: 250,
-                            onLike: () {}),
+                            imgWidth: 250, onLike: () {
+                          onLiked();
+                        }),
                       ),
                     )
                   ],
