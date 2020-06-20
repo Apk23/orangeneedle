@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         '/signup': (BuildContext context) => SignUpPage(),
         '/signin': (BuildContext context) => SignInPage(),
         '/dashboard': (BuildContext context) => Dashboard(),
-//        '/productPage': (BuildContext context) => ProductPage(),
+        '/productPage': (BuildContext context) => ProductPage(),
       },
     );
   }
