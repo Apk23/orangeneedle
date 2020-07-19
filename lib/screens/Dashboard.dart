@@ -4,9 +4,11 @@ import 'package:orangeneedles/Components/colours.dart';
 import 'ProductPage.dart';
 import 'package:orangeneedles/Components/product.dart';
 import 'package:orangeneedles/Components/partials.dart';
+import 'uploadscreen.dart';
 
 class Dashboard extends StatefulWidget {
   final String pageTitle;
+  static const String id = 'Dashboard';
 
   Dashboard({Key key, this.pageTitle}) : super(key: key);
 
@@ -22,7 +24,7 @@ class _DashboardState extends State<Dashboard> {
     final _tabs = [
       storeTab(context),
       Text('Tab2'),
-      Text('Tab3'),
+      uploadScreen(),
       Text('Tab4'),
       Text('Tab5'),
     ];
@@ -67,15 +69,21 @@ class _DashboardState extends State<Dashboard> {
                   style: tabLinkStyle,
                 )),
             BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_cart),
+                icon: Icon(Icons.search),
                 title: Text(
-                  'My Cart',
+                  'Search',
                   style: tabLinkStyle,
                 )),
             BottomNavigationBarItem(
-                icon: Icon(Icons.star),
+                icon: Icon(Icons.add_a_photo),
                 title: Text(
-                  'Favourites',
+                  'Upload',
+                  style: tabLinkStyle,
+                )),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.shopping_cart),
+                title: Text(
+                  'My Cart',
                   style: tabLinkStyle,
                 )),
             BottomNavigationBarItem(
@@ -84,12 +92,6 @@ class _DashboardState extends State<Dashboard> {
                   'Profile',
                   style: tabLinkStyle,
                 )),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.settings),
-                title: Text(
-                  'Settings',
-                  style: tabLinkStyle,
-                ))
           ],
           currentIndex: _selectedIndex,
           type: BottomNavigationBarType.fixed,

@@ -8,6 +8,7 @@ import 'Dashboard.dart';
 
 class SignUpPage extends StatefulWidget {
   final String pageTitle;
+  static const String id = 'SignUp';
 
   SignUpPage({Key key, this.pageTitle});
 

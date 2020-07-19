@@ -9,6 +9,7 @@ import 'package:smooth_star_rating/smooth_star_rating.dart';
 class ProductPage extends StatefulWidget {
   final String pageTitle;
   final Product productData;
+  static const String id = 'ProductPage';
 
   ProductPage({Key key, this.pageTitle, this.productData}) : super(key: key);
 

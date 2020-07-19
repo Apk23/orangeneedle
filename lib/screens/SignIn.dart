@@ -8,6 +8,7 @@ import 'Dashboard.dart';
 
 class SignInPage extends StatefulWidget {
   final String pageTitle;
+  static const String id = 'SignIn';
 
   SignInPage({Key key, this.pageTitle}) : super(key: key);
 
