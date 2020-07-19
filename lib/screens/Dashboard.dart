@@ -5,7 +5,7 @@ import 'ProductPage.dart';
 import 'package:orangeneedles/Components/product.dart';
 import 'package:orangeneedles/Components/partials.dart';
 import 'uploadscreen.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 class Dashboard extends StatefulWidget {
   final String pageTitle;
   static const String id = 'Dashboard';
@@ -17,7 +17,20 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+  final _auth = FirebaseAuth.instance;
+  FirebaseUser loggedinuser;
   int _selectedIndex = 0;
+
+  void getcurrentuser() async {
+    try {
+      final user = await _auth.currentUser();
+      if(user != null) {
+        loggedinuser = user;
+      }
+    }catch(e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
